@@ -1,5 +1,21 @@
 {{> header}}
 
 <h1>{{title}}</h1>
+<script>
 
+function show_loc() {
+    try {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/spy_game_get_loc", false ); // false for synchronous request
+        xmlHttp.send( null );
+        document.getElementById("location").innerText = xmlHttp.responseText;
+    } catch(error) {
+        document.getElementById("location").innerText = error;
+    }
+}
+</script>
+
+<input id="show_loc_button" type="button" value="Показать локацию" onclick="show_loc();"/>
+
+<h2 id="location"></h2>
 {{> footer}}

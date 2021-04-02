@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Шпион (v 0.0.1)</title>
+</head>
+<body>
+<script> 
+locations = [];
+function save_loc() {
+	var loc = document.getElementById("locations_ta").value;
+	document.getElementById("locations_ta").value = "";
+	if (loc != "") {
+        alert("Добавлено: " + loc);
+    }
+	locations.push(loc);
+}
+
+function start_game() {
+	let players = parseInt(document.getElementById("players_ta").value);
+	let spy = Math.round(Math.random() * players);
+	let location = locations[Math.round(Math.random() * locations.length)];
+	for (let i =0; i < players; i++){
+		alert("Игрок " + (i + 1) + ": Нажми \"ОК\"");
+		if(i == spy) {
+			alert("Игрок " + (i + 1) + ": Шпион");
+		} else {
+			alert("Игрок " + (i + 1) + ": Локация: " + location);
+		}
+	}
+}
+</script>
+<textarea id="locations_ta" name="textarea" rows="1" placeholder="Добавьте локацию"></textarea>
+<br>
+<input type="button" value="Сохранить локацию" onclick="save_loc();"/>
+<br>
+<br>
+<textarea id="players_ta" name="textarea" rows="1" placeholder="Ввпедите количество игроков"></textarea>
+<br>
+<input type="button" value="Начать игру" onclick="start_game();"/>
+</body>
+</html>

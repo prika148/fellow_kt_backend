@@ -2,16 +2,33 @@
 
 <h1>{{title}}</h1>
 
- <form action="/spy_game">
-  <p><b>Введите название комнаты</b></p>
-  <input type="text" name="game_id"><Br>
-  <p><b>Введите количество человек</b></p>
-  <input type="number" name="capacity"><Br>
-  <p><b>Введите Несколько локаций (каждая с новой строки)</b></p>
-  <input type="text" name="locations"><Br>
-  <p><b>Ваше имя:</b></p>
-  <input type="text" name="name"><Br>
-  <p><input type="submit"></p>
- </form>
+<table width="100%" cellspacing="0" cellpadding="50">
+   <tr>
+   	<td width="200" valign="top">
+	<h2 style="color: green"><b>Создать комнату</b></h2>
+	<form action="/spy_game_init" name="create_game">
+	  <p><b>Введите количество человек</b></p>
+	  <input type="number" name="capacity"><Br>
+	  <p><b>Введите несколько локаций (каждая с новой строки)</b></p>
+   	  <textarea name="locations" rows="3"></textarea><Br>
+	  <p><b>Ваше имя:</b></p>
+	  <input type="text" name="name"><Br>
+	  <p><input type="submit" value="Создать комнату"></p>
+	</form>
+</td>
+<td valign="top">
+	<h2 style="color: green"><b>Присоединиться к комнате</b></h2>
+	<form action="/spy_game_join" name="join_game">
+	  <p><b>Введите название существующей комнаты</b></p>
+	  <input type="text" name="game_id"><Br>
+	  <p><b>Введите несколько локаций (каждая с новой строки)</b></p>
+   	  <textarea name="locations" rows="3"></textarea><Br>
+	  <p><b>Ваше имя:</b></p>
+	  <input type="text" name="name"><Br>
+	  <p><input type="submit" value="Присоединиться"></p>
+	</form>
+</td>
+</tr>
+</table>
 
 {{> footer}}
