@@ -91,7 +91,10 @@ class SpyGameController @Autowired constructor(
         @CookieValue(value = "game_id") game_id: String?,
         @CookieValue(value = "name") name: String?
     ): String {
-        model["title"] = "Игра $game_id - $name"
+        model["title"] = "Шпион. Игра $game_id"
+        model["game_id"] = game_id ?: "null"
+        model["name"] = name ?: "null"
+        model["locations"] = "TODO"
 
         return "spy_game"
     }

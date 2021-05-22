@@ -10,7 +10,7 @@ class HtmlController {
 
   @GetMapping("/")
   fun blog(model: Model): String {
-    model["title"] = "Главная"
+    model["title"] = "Fellow-games.ru - Глаявная страница"
     return "main"
   }
 
